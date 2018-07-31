@@ -21,3 +21,4 @@ for j in range(0,10):
     print(d[j])
 print(d[5:10])
 print('sq[0:2] : ',sq[0:2])
+print(d[5:10])
