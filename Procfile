@@ -1,1 +1,1 @@
-worker: python apjob1.py
+worker: python apjob1.py --log-file -
