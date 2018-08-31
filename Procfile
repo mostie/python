@@ -1,1 +1,1 @@
-web: python apjob1.py --log-file -
+clock: python apjob1.py
