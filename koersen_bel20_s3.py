@@ -94,31 +94,17 @@ def write_bel20_to_amazon_s3():
 
     print('==> voor for var')   
     for var in output:
-        print(var.get('title'))
+        print(var.get('price'))
 
 
     with open('koersen.csv', 'w', newline='') as csvfile:
         for var in output:
-            koerswriter = csv.writer(csvfile, delimiter=' ',
-                                quotechar='|', quoting=csv.QUOTE_MINIMAL)
-            koerswriter.writerow(var.get('title'))
+            koerswriter = csv.writer(csvfile, delimiter=',',
+                                quotechar=' ', quoting=csv.QUOTE_MINIMAL)
+            koerswriter.writerow(var.get('price'))
 
 
-    '''        
-    path = r"c:\users\pxm04\git\python\koersen.csv"
 
-    csv_writer(output, path)
-
-    # Create an S3 client
-    s3 = boto3.client('s3')
-
-    filename = r"c:\users\pxm04\git\python\koersen.csv"
-    bucket_name = 'mostie-algemeen'
-
-        # Uploads the given file using a managed uploader, which will split up large
-        # files automatically and upload parts in parallel.
-    s3.upload_file(filename, bucket_name, filename)
-    '''
 
 
 
