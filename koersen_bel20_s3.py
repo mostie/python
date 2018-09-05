@@ -94,7 +94,15 @@ def write_bel20_to_amazon_s3():
 
     print('==> voor for var')   
     for var in output:
-        print(var)
+        print(var.get('title'))
+
+
+    with open('koersen.csv', 'w', newline='') as csvfile:
+        for var in output:
+            koerswriter = csv.writer(csvfile, delimiter=' ',
+                                quotechar='|', quoting=csv.QUOTE_MINIMAL)
+            koerswriter.writerow(var.get('title'))
+
 
     '''        
     path = r"c:\users\pxm04\git\python\koersen.csv"
@@ -111,6 +119,7 @@ def write_bel20_to_amazon_s3():
         # files automatically and upload parts in parallel.
     s3.upload_file(filename, bucket_name, filename)
     '''
+
 
 
 if __name__ == '__main__':
